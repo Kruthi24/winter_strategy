@@ -2,6 +2,8 @@
 ########################################
 figures/
 telescope_configurations/
+palomar_telescope_configurations/
+
 <<<<<<< HEAD
 =======
 data/NEDLVS_20210922_v2_modified.fits.gz
