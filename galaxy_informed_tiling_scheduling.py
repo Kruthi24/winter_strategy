@@ -81,8 +81,9 @@ def process_inj(j):
         tileObj = galaxy_informed_tiling.GalaxyTileGenerator(configfile=config_dir+site_names[i]+"_config.ini", 
                                                              outdir=outdir, skymapfile=path+fname,)
         gal_informed_tiles = tileObj.get_galaxy_informed_tiles(cat, site_names[i], sort_metric = 'Mstar', CI=CI,
-                                  sort_by_metric_times_tile_prob = False, save_csv=True, tag=tag)
+                                  sort_by_metric_times_tile_prob = False, save_csv=False)
         gal_informed_saved_csv = outdir+tag+"_galaxy_informed_tiles.csv"
+        gal_informed_tiles.to_csv(gal_informed_saved_csv, index=False)
         
         prob_ranked = gal_informed_tiles.sort_values(by='tile_prob', ascending=False)
         prob_ranked_saved_csv = outdir+tag+"_prob_ranked.csv"

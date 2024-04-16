@@ -13,7 +13,7 @@ import numpy as np
 logging.config.dictConfig({'version': 1,'disable_existing_loggers': True,})
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
-duration = 50*3600
+duration = 100*3600
 integration_times = [50, 303, 140, 32, 50] ## taken from gwemopt
 lim_mag = [26, 21, 24, 24.4, 20.4] ## taken from gwemopt
 image_per_pointing = 1
@@ -31,9 +31,9 @@ units = [1, 1, 1, 1, 1]
 inj_list = ["bns_50Mpc", "bns_100Mpc", "bns_150Mpc", "bns_200Mpc"]
 site_names = ["Roman", "WINTER", "DECam", "Rubin", "ZTF"]
 config_dir = "palomar_telescope_configurations/"
-detectability_file = "results/"+trial+"_detectability_gal_targeted.csv"
-outdir = "results/"+trial+"_gal_targeted/"
-cat = Table.read("data/NEDLVS_20210922_v2_modified.fits")
+detectability_file = "results/"+trial+"_detectability_gal_targeted_Mstar.csv"
+outdir = "results/"+trial+"_gal_targeted_Mstar/"
+cat = Table.read("data/NEDLVS_20210922_v2_modified.fits.gz")
 
 if not os.path.exists(outdir):
        os.makedirs(outdir)
@@ -68,7 +68,7 @@ def process_inj(j):
     source_tile_ranks = np.full(nsites, np.nan)
     delta_t_array = np.full(nsites, np.nan)
 
-     # Configure a separate log file for each GRB inside the outdir
+    #Configure a separate log file for each GRB inside the outdir
     log_filename = os.path.join(outdir, f'{inj_name}_logfile.log')
     file_handler = logging.FileHandler(log_filename, mode='w')
     file_handler.setFormatter(logging.Formatter('%(message)s'))
@@ -80,11 +80,11 @@ def process_inj(j):
         tag = inj_name+"_"+site_names[i]
         tileObj = galaxy_informed_tiling.GalaxyTileGenerator(configfile=config_dir+site_names[i]+"_config.ini", 
                                                              outdir=outdir, skymapfile=path+fname,)
-        ranked_tiles = tileObj.get_galaxy_targeted_tiles(cat, site_names[i], unique_tiles = True, sort_metric = 'Mstar', CI=CI,
-                                  sort_by_metric_times_P_3D = False, save_csv=True, save_crossmatched_csv = True)
+        ranked_tiles = tileObj.get_galaxy_targeted_tiles(cat, site_names[i], unique_tiles = True, sort_metric = 'Mstar', CI=CI, sort_by_metric_times_P_3D = False)
         ranked_tile_saved_csv = outdir+site_names[i]+"_galaxy_targeted_tiles_unique.csv"
-
-        # tileObj.plotTiles(event=[ra, dec], save_plot=True, tag=tag, tileEdges=True, FOV=fov[i])
+        ranked_tiles.to_csv(ranked_tile_saved_csv, index=False)
+        
+        #tileObj.plotTiles(event=[ra, dec], save_plot=True, tag=tag, tileEdges=True, FOV=fov[i])
         source_index = tileObj.sourceTile(ra, dec)
         source_withinin_CI_area = ranked_tiles[ranked_tiles["tile_index"]== source_index]
         if not source_withinin_CI_area.empty:
