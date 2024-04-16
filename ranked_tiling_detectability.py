@@ -12,7 +12,7 @@ import numpy as np
 logging.config.dictConfig({'version': 1,'disable_existing_loggers': True,})
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 
-duration = 50*3600
+duration = 100*3600
 integration_times = [50, 303, 140, 32, 50] ## taken from gwemopt
 lim_mag = [26, 21, 24, 24.4, 20.4] ## taken from gwemopt
 image_per_pointing = 1

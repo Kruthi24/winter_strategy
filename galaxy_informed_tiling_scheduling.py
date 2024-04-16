@@ -33,7 +33,7 @@ site_names = ["Roman", "WINTER", "DECam", "Rubin", "ZTF"]
 config_dir = "palomar_telescope_configurations/"
 detectability_file = "results/"+trial+"_detectability_gal_informed.csv"
 outdir = "results/"+trial+"_gal_informed/"
-cat = Table.read("data/NEDLVS_20210922_v2_modified.fits")
+cat = Table.read("data/NEDLVS_20210922_v2_modified.fits.gz")
 
 if not os.path.exists(outdir):
        os.makedirs(outdir)
@@ -81,7 +81,7 @@ def process_inj(j):
         tileObj = galaxy_informed_tiling.GalaxyTileGenerator(configfile=config_dir+site_names[i]+"_config.ini", 
                                                              outdir=outdir, skymapfile=path+fname,)
         gal_informed_tiles = tileObj.get_galaxy_informed_tiles(cat, site_names[i], sort_metric = 'Mstar', CI=CI,
-                                  sort_by_metric_times_tile_prob = False, save_csv=True)
+                                  sort_by_metric_times_tile_prob = False, save_csv=True, tag=tag)
         gal_informed_saved_csv = outdir+tag+"_galaxy_informed_tiles.csv"
         
         prob_ranked = gal_informed_tiles.sort_values(by='tile_prob', ascending=False)
