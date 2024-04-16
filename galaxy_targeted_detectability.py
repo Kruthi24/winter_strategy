@@ -81,7 +81,7 @@ def process_inj(j):
         tileObj = galaxy_informed_tiling.GalaxyTileGenerator(configfile=config_dir+site_names[i]+"_config.ini", 
                                                              outdir=outdir, skymapfile=path+fname,)
         ranked_tiles = tileObj.get_galaxy_targeted_tiles(cat, site_names[i], unique_tiles = True, sort_metric = 'Mstar', CI=CI, sort_by_metric_times_P_3D = False)
-        ranked_tile_saved_csv = outdir+site_names[i]+"_galaxy_targeted_tiles_unique.csv"
+        ranked_tile_saved_csv = outdir+tag+"_galaxy_targeted_tiles_unique.csv"
         ranked_tiles.to_csv(ranked_tile_saved_csv, index=False)
         
         #tileObj.plotTiles(event=[ra, dec], save_plot=True, tag=tag, tileEdges=True, FOV=fov[i])
