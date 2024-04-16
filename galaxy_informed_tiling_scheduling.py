@@ -158,8 +158,12 @@ if __name__ == "__main__":
     logging.info(f"resolution: {resolution}")
     logging.getLogger().removeHandler(main_file_handler)
 
-    multiprocessing.set_start_method("spawn")
+    try:
+        multiprocessing.set_start_method('spawn', force=True)
+    except RuntimeError:
+        pass
     num_processes = multiprocessing.cpu_count()-1 # You can adjust this based on your system's capabilities
+    
     if num_processes < 4:
         print("\033[91m {}\033[00m" .format("WARNING: Individual log files won't be logged properly when using less than 4 cores"))
     with multiprocessing.Pool(num_processes) as pool:
