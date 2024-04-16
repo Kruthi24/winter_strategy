@@ -1,0 +1,2 @@
+bayestar_map_zero_noise.sh --> new values for which schedule is not None
+Don't touch psd.xml! It is from bayestar_skymap_newtime (should be fine, but still)

@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE LIGO_LW SYSTEM "http://ldas-sw.ligo.caltech.edu/doc/ligolwAPI/html/ligolw_dtd.txt"><LIGO_LW>
+	<Table Name="process:table">
+		<Column Name="process:program" Type="lstring"/>
+		<Column Name="process:version" Type="lstring"/>
+		<Column Name="process:cvs_repository" Type="lstring"/>
+		<Column Name="process:cvs_entry_time" Type="int_4s"/>
+		<Column Name="process:comment" Type="lstring"/>
+		<Column Name="process:is_online" Type="int_4s"/>
+		<Column Name="process:node" Type="lstring"/>
+		<Column Name="process:username" Type="lstring"/>
+		<Column Name="process:unix_procid" Type="int_4s"/>
+		<Column Name="process:start_time" Type="int_4s"/>
+		<Column Name="process:end_time" Type="int_4s"/>
+		<Column Name="process:jobid" Type="int_4s"/>
+		<Column Name="process:domain" Type="lstring"/>
+		<Column Name="process:ifos" Type="lstring"/>
+		<Column Name="process:process_id" Type="int_8s"/>
+		<Stream Name="process:table" Type="Local" Delimiter=",">
+			"inspinj","a0875c0521f5515aa66027c4e53b3c0ba35ec1ba","CLEAN: All modifications committed",1351545455," ",0,"Kruthis-MacBook-Air.local","501",5491,1387978893,1387978893,0,"lalapps","",0
+		</Stream>
+	</Table>
+	<Table Name="process_params:table">
+		<Column Name="process_params:program" Type="lstring"/>
+		<Column Name="process:process_id" Type="int_8s"/>
+		<Column Name="process_params:param" Type="lstring"/>
+		<Column Name="process_params:type" Type="lstring"/>
+		<Column Name="process_params:value" Type="lstring"/>
+		<Stream Name="process_params:table" Type="Local" Delimiter=",">
+			"inspinj",0,"--output","string","inj.xml",
+			"inspinj",0,"--m-distr","string","fixMasses",
+			"inspinj",0,"--fixed-mass1","float","1.400000",
+			"inspinj",0,"--fixed-mass2","float","1.400000",
+			"inspinj",0,"--gps-start-time","int","1383977402",
+			"inspinj",0,"--gps-end-time","int","1383977403",
+			"inspinj",0,"--time-step","float","1.000000e+02",
+			"inspinj",0,"--d-distr","string","uniform",
+			"inspinj",0,"--min-distance","float","2.000000e+05",
+			"inspinj",0,"--max-distance","float","2.000000e+05",
+			"inspinj",0,"--l-distr","string","fixed",
+			"inspinj",0,"--longitude","float","-1.533313e+00",
+			"inspinj",0,"--latitude","float","6.162474e-01",
+			"inspinj",0,"--f-lower","float","40.000000",
+			"inspinj",0,"--disable-spin","string","",
+			"inspinj",0,"--polarization","float","0.000000e+00",
+			"inspinj",0,"--waveform","string","IMRPhenomPv2",
+			"inspinj",0,"--coa-phase-distr","string","fixed",
+			"inspinj",0,"--fixed-coa-phase","float","0.000000e+00",
+			"inspinj",0,"--i-distr","string","fixed",
+			"inspinj",0,"--fixed-inc","float","0.000000e+00"
+		</Stream>
+	</Table>
+	<Table Name="sim_inspiral:table">
+		<Column Name="process:process_id" Type="int_8s"/>
+		<Column Name="sim_inspiral:waveform" Type="lstring"/>
+		<Column Name="sim_inspiral:geocent_end_time" Type="int_4s"/>
+		<Column Name="sim_inspiral:geocent_end_time_ns" Type="int_4s"/>
+		<Column Name="sim_inspiral:h_end_time" Type="int_4s"/>
+		<Column Name="sim_inspiral:h_end_time_ns" Type="int_4s"/>
+		<Column Name="sim_inspiral:l_end_time" Type="int_4s"/>
+		<Column Name="sim_inspiral:l_end_time_ns" Type="int_4s"/>
+		<Column Name="sim_inspiral:g_end_time" Type="int_4s"/>
+		<Column Name="sim_inspiral:g_end_time_ns" Type="int_4s"/>
+		<Column Name="sim_inspiral:t_end_time" Type="int_4s"/>
+		<Column Name="sim_inspiral:t_end_time_ns" Type="int_4s"/>
+		<Column Name="sim_inspiral:v_end_time" Type="int_4s"/>
+		<Column Name="sim_inspiral:v_end_time_ns" Type="int_4s"/>
+		<Column Name="sim_inspiral:end_time_gmst" Type="real_8"/>
+		<Column Name="sim_inspiral:source" Type="lstring"/>
+		<Column Name="sim_inspiral:mass1" Type="real_4"/>
+		<Column Name="sim_inspiral:mass2" Type="real_4"/>
+		<Column Name="sim_inspiral:mchirp" Type="real_4"/>
+		<Column Name="sim_inspiral:eta" Type="real_4"/>
+		<Column Name="sim_inspiral:distance" Type="real_4"/>
+		<Column Name="sim_inspiral:longitude" Type="real_4"/>
+		<Column Name="sim_inspiral:latitude" Type="real_4"/>
+		<Column Name="sim_inspiral:inclination" Type="real_4"/>
+		<Column Name="sim_inspiral:coa_phase" Type="real_4"/>
+		<Column Name="sim_inspiral:polarization" Type="real_4"/>
+		<Column Name="sim_inspiral:psi0" Type="real_4"/>
+		<Column Name="sim_inspiral:psi3" Type="real_4"/>
+		<Column Name="sim_inspiral:alpha" Type="real_4"/>
+		<Column Name="sim_inspiral:alpha1" Type="real_4"/>
+		<Column Name="sim_inspiral:alpha2" Type="real_4"/>
+		<Column Name="sim_inspiral:alpha3" Type="real_4"/>
+		<Column Name="sim_inspiral:alpha4" Type="real_4"/>
+		<Column Name="sim_inspiral:alpha5" Type="real_4"/>
+		<Column Name="sim_inspiral:alpha6" Type="real_4"/>
+		<Column Name="sim_inspiral:beta" Type="real_4"/>
+		<Column Name="sim_inspiral:spin1x" Type="real_4"/>
+		<Column Name="sim_inspiral:spin1y" Type="real_4"/>
+		<Column Name="sim_inspiral:spin1z" Type="real_4"/>
+		<Column Name="sim_inspiral:spin2x" Type="real_4"/>
+		<Column Name="sim_inspiral:spin2y" Type="real_4"/>
+		<Column Name="sim_inspiral:spin2z" Type="real_4"/>
+		<Column Name="sim_inspiral:theta0" Type="real_4"/>
+		<Column Name="sim_inspiral:phi0" Type="real_4"/>
+		<Column Name="sim_inspiral:f_lower" Type="real_4"/>
+		<Column Name="sim_inspiral:f_final" Type="real_4"/>
+		<Column Name="sim_inspiral:eff_dist_h" Type="real_4"/>
+		<Column Name="sim_inspiral:eff_dist_l" Type="real_4"/>
+		<Column Name="sim_inspiral:eff_dist_g" Type="real_4"/>
+		<Column Name="sim_inspiral:eff_dist_t" Type="real_4"/>
+		<Column Name="sim_inspiral:eff_dist_v" Type="real_4"/>
+		<Column Name="sim_inspiral:numrel_mode_min" Type="int_4s"/>
+		<Column Name="sim_inspiral:numrel_mode_max" Type="int_4s"/>
+		<Column Name="sim_inspiral:numrel_data" Type="lstring"/>
+		<Column Name="sim_inspiral:amp_order" Type="int_4s"/>
+		<Column Name="sim_inspiral:taper" Type="lstring"/>
+		<Column Name="sim_inspiral:bandpass" Type="int_4s"/>
+		<Column Name="sim_inspiral:simulation_id" Type="int_8s"/>
+		<Stream Name="sim_inspiral:table" Type="Local" Delimiter=",">
+
+			0,"IMRPhenomPv2",1383977402,0,1383977401,995999251,1383977402,5671335,1383977401,995127689,1383977401,979106026,1383977401,997098706,54930.14589748147,"",1.399999976158142,1.399999976158142,1.218770742416382,0.25,200,-1.533312678337097,0.6162474155426025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,40,0,425.2166137695312,405.2997436523438,446.2103271484375,203.3870391845703,          658.64,0,0,"",-1,"TAPER_NONE",0,0
+		</Stream>
+	</Table>
+</LIGO_LW>
