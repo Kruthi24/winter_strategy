@@ -49,8 +49,8 @@ source activate $ENV
 
 ###################################################################################################################
 
-python ./galaxy_targeted_detectability.py
-#python ./galaxy_informed_tiling_scheduling.py
+#python ./galaxy_targeted_detectability.py
+python ./galaxy_informed_tiling_scheduling.py
 
 ####################################################################################################################
 
